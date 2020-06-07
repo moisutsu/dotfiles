@@ -69,3 +69,8 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/go/bin
+
+# Homebrew
+if [ ! "$(uname)" == 'Darwin' ]; then
+  eval $($HOME/.linuxbrew/bin/brew shellenv)
+fi
