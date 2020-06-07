@@ -16,3 +16,6 @@ ln -sf $HOME/dotfiles/gitfiles/gitignore_global $HOME/.gitignore_global
 # shellscripts
 ln -sf $HOME/dotfiles/shellscripts/aliases $HOME/.aliases
 ln -sf $HOME/dotfiles/shellscripts/functions $HOME/.functions
+
+# Brewfile
+ln -sf $HOME/dotfiles/configs/Brewfile $HOME/Brewfile
