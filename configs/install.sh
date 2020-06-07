@@ -5,3 +5,9 @@
 eval $($HOME/.linuxbrew/bin/brew shellenv)
 
 brew bundle
+
+# Poetry
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+
+# cargo
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
