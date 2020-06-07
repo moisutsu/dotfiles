@@ -1,0 +1,29 @@
+#!/bin/zsh
+
+# クリップボードの文字列をDeepLで翻訳
+function deepl () {
+  local clip=`pbpaste | tr '\n' ' '`
+  local convert=`ruby -e "puts \"$clip\".gsub(\"\\- \", \"\").gsub(\"al\.\", \"al\").gsub(\"\.\", \"\.\\n\\n\")"`
+  local encoded=`ruby -e "puts URI.escape(\""$convert"\")"`
+  open "https://www.deepl.com/translator#en/ja/${encoded}"
+}
+
+# playgroundでリポジトリを作成
+function hcp () {
+  local CURRENT_DIR=`basename $(pwd)`
+  hub create moisutsu-playground/$CURRENT_DIR
+}
+
+function localhost () {
+  open http://localhost:$1
+}
+
+# make playground repository
+function mkpr () {
+  if [ $# -eq 1 ]; then
+    cdp
+    mkdcd $1
+    git init
+    hcp
+  fi
+}

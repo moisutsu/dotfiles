@@ -1,0 +1,39 @@
+#!/bin/zsh
+
+alias ls=exa
+alias find=fd
+alias dump=hexyl
+# docker run tmp-contaner
+alias drt="docker run --rm -it"
+alias tree="exa -T"
+alias ca="cargo atcoder"
+alias cas="ca submit"
+alias can="ca new"
+alias cate="ca test"
+alias poer="poetry run"
+alias poep="poetry run python"
+alias poes="poetry shell"
+alias reload="exec $SHELL -l"
+
+# git
+alias ga="git add"
+alias gc="git commit"
+alias gp="git push"
+alias gaa="git add -A"
+alias gcm="git commit -m"
+alias gca="git commit --amend"
+alias gpuom="git push -u origin master"
+alias hc="hub create"
+alias cdm="$HOME/ghq/github.com/moisutsu"
+alias cdp="$HOME/ghq/github.com/moisutsu-playground"
+
+# lab jupyter lab
+# Usage: labjupyer fvcrc-1
+alias labjupyter="ssh -L 8888:localhost:9999 lab -t ssh -L 9999:localhost:9999"
+
+# utils
+alias lh="localhost"
+
+# ls
+alias la="ls -a"
+alias lla="ls -la"
