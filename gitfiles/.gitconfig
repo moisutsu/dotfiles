@@ -1,0 +1,12 @@
+[user]
+	name = moisutsu
+	email = moisutsu@gmail.com
+[core]
+	editor = code --wait
+	excludesfile = ~/.gitignore_global
+[merge]
+	tool = code --wait \"$MERGED\"
+[ghq]
+	root = ~/ghq
+[commit]
+	template = /Users/jun/.commit_template
