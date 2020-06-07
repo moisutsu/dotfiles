@@ -2,7 +2,9 @@
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-eval $($HOME/.linuxbrew/bin/brew shellenv)
+if [ ! "$(uname)" = 'Darwin' ]; then
+    eval $($HOME/.linuxbrew/bin/brew shellenv)
+fi
 
 brew bundle
 
