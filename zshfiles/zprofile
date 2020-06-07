@@ -70,7 +70,7 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
 fi
 
 # Homebrew
-if [ ! "$(uname)" == 'Darwin' ]; then
+if [ ! "$(uname)" = 'Darwin' ]; then
   eval $($HOME/.linuxbrew/bin/brew shellenv)
 fi
 
