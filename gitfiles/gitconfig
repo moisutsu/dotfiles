@@ -9,4 +9,4 @@
 [ghq]
 	root = ~/ghq
 [commit]
-	template = /Users/jun/.commit_template
+	template = ~/.commit_template
