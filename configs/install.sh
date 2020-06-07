@@ -6,6 +6,12 @@ eval $($HOME/.linuxbrew/bin/brew shellenv)
 
 brew bundle
 
+if [ ! which zsh ]; then
+    brew install zsh
+fi
+
+chsh -s `which zsh`
+
 # Poetry
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 
