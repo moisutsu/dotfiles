@@ -70,6 +70,7 @@ fi
 
 # Homebrew
 if [ ! "$(uname)" = 'Darwin' ]; then
+    export HOMEBREW_NO_ENV_FILTERING=1
     if [ -e $HOME/.linuxbrew/bin/brew ];then
         eval $($HOME/.linuxbrew/bin/brew shellenv)
     else
