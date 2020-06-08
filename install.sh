@@ -20,6 +20,9 @@ fi
 
 chsh -s `which zsh`
 
+# anyenv
+anyenv install --init
+
 # Poetry
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 
