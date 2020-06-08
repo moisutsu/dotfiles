@@ -18,7 +18,9 @@ if [ ! which zsh ]; then
     brew install zsh
 fi
 
-chsh -s `which zsh`
+if [ ! $SHELL = `which zsh` ]; then
+    chsh -s `which zsh`
+fi
 
 # anyenv
 anyenv install --init
