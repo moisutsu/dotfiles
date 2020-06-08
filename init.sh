@@ -1,7 +1,7 @@
 #!/bin/bash
 
-bash configs/symbolic_link.sh
+bash $HOME/dotfiles/link.sh
 
-bash configs/install.sh
+bash $HOME/dotfiles/install.sh
 
 exec $SHELL -l
