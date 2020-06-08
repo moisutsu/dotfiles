@@ -16,11 +16,11 @@ fi
 
 brew bundle
 
-if [ ! which zsh ]; then
+if [ ! `which zsh` ]; then
     brew install zsh
 fi
 
-if [ ! $SHELL = `which zsh` ]; then
+if [ $SHELL != "`which zsh`" ]; then
     chsh -s `which zsh`
 fi
 
