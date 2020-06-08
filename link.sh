@@ -11,5 +11,5 @@ do
     ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
 done
 
-mkdir -p .emacs.d
+mkdir -p $HOME/.emacs.d
 ln -snfv ${DOT_DIRECTORY}/.emacs/init.el ${HOME}/.emacs.d/init.el
