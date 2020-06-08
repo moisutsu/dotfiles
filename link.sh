@@ -3,6 +3,8 @@
 DOT_DIRECTORY="${HOME}/dotfiles"
 SPECIFY_FILES=(Brewfile)
 
+cd `dirname $0`
+
 for f in .??* ${SPECIFY_FILES[@]}
 do
     [[ ${f} = ".git" ]] && continue
