@@ -4,4 +4,4 @@ bash $HOME/dotfiles/link.sh
 
 bash $HOME/dotfiles/install.sh
 
-exec $SHELL -l
+exec zsh -l
