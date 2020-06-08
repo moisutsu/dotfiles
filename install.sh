@@ -20,9 +20,10 @@ if [ ! `which zsh` ]; then
     brew install zsh
 fi
 
-if [ $SHELL != "`which zsh`" ]; then
-    chsh -s `which zsh`
-fi
+# /etc/shellsに `which zsh` の出力を追加する必要あり
+# if [ $SHELL != "`which zsh`" ]; then
+#     chsh -s `which zsh`
+# fi
 
 # anyenv
 anyenv install --init
