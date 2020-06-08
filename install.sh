@@ -5,7 +5,11 @@ export HOMEBREW_NO_ENV_FILTERING=1
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 if [ ! "$(uname)" = 'Darwin' ]; then
-    eval $($HOME/.linuxbrew/bin/brew shellenv)
+    if [ -e $HOME/.linuxbrew/bin/brew ];then
+        eval $($HOME/.linuxbrew/bin/brew shellenv)
+    else
+        eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    fi
 fi
 
 brew bundle
