@@ -5,6 +5,7 @@ alias find=fd
 alias dump=hexyl
 # docker run tmp-contaner
 alias drt="docker run --rm -it"
+alias dc="docker-compose"
 alias tree="exa -T"
 alias ca="cargo atcoder"
 alias cas="ca submit"
