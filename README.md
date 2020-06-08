@@ -2,8 +2,7 @@
 
 ホームディレクトリにて
 ```bash
-git clone https://github.com/moisutsu/dotfiles
-bash dotfiles/init.sh
+$ curl -L raw.github.com/moisutsu/dotfiles/master/init.sh | bash
 ```
 
 ## 必要なコマンド
