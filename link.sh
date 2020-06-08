@@ -1,21 +1,12 @@
 #!/bin/bash
 
-# zshfiles
-ln -sf $HOME/dotfiles/zshfiles/zshrc $HOME/.zshrc
-ln -sf $HOME/dotfiles/zshfiles/zlogin $HOME/.zlogin
-ln -sf $HOME/dotfiles/zshfiles/zlogout $HOME/.zlogout
-ln -sf $HOME/dotfiles/zshfiles/zpreztorc $HOME/.zpreztorc
-ln -sf $HOME/dotfiles/zshfiles/zshenv $HOME/.zshenv
-ln -sf $HOME/dotfiles/zshfiles/zprofile $HOME/.zprofile
+DOT_DIRECTORY="${HOME}/dotfiles"
+SPECIFY_FILES=(Brewfile)
 
-# gitfiles
-ln -sf $HOME/dotfiles/gitfiles/commit_template $HOME/.commit_template
-ln -sf $HOME/dotfiles/gitfiles/gitconfig $HOME/.gitconfig
-ln -sf $HOME/dotfiles/gitfiles/gitignore_global $HOME/.gitignore_global
-
-# shellscripts
-ln -sf $HOME/dotfiles/shellscripts/aliases $HOME/.aliases
-ln -sf $HOME/dotfiles/shellscripts/functions $HOME/.functions
-
-# Brewfile
-ln -sf $HOME/dotfiles/configs/Brewfile $HOME/Brewfile
+for f in .??* ${SPECIFY_FILES[@]}
+do
+    [[ ${f} = ".git" ]] && continue
+    [[ ${f} = ".gitignore" ]] && continue
+    [[ ${f} = ".DS_Store" ]] && continue
+    ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
+done
