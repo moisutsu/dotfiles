@@ -2,6 +2,8 @@
 
 export HOMEBREW_NO_ENV_FILTERING=1
 
+sudo -k
+
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 if [ ! "$(uname)" = 'Darwin' ]; then
