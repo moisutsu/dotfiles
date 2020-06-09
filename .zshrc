@@ -4,14 +4,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # .aliasesを読み込み
-if [ -f $HOME/.aliases ]; then
-  . $HOME/.aliases
-fi
+[ -f $HOME/.aliases ] && source $HOME/.aliases
 
 # 自作シェススクリプトの読み込み
-if [ -f $HOME/.functions ]; then
-  . $HOME/.functions
-fi
+[ -f $HOME/.functions ] && source $HOME/.functions
 
 # fpath
 fpath+=~/.zfunc
