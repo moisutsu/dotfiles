@@ -19,3 +19,6 @@ fpath+=~/.zfunc
 # zsh 補間
 autoload -U compinit
 compinit
+
+# .zshrc.local 環境依存の設定を記述
+[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
