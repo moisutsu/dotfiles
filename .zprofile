@@ -79,6 +79,4 @@ if [ ! "$(uname)" = 'Darwin' ]; then
 fi
 
 # anyenv
-if [ `which anyenv` ]; then
-    eval "$(anyenv init -)"
-fi
+type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
