@@ -31,4 +31,4 @@ anyenv install --init
 # prezto
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
-exec zsh -l
+zsh -l
