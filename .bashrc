@@ -8,6 +8,7 @@ if [ ! "$(uname)" = 'Darwin' ]; then
     fi
 fi
 
-export SHELL="`which zsh`"
-
-exec $SHELL -l
+if command -v zsh 1>/dev/null 2>&1; then
+    export SHELL="`which zsh`"
+    exec $SHELL -l
+fi
