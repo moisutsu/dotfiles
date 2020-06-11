@@ -1,0 +1,17 @@
+# Encoding
+defencodig utf-8
+
+# Prefix Key
+escape ^Jj
+
+# set scrollback
+defscrollback 1000000
+
+# Delete sartt up screen
+startup_message off
+
+# Enable Auto detach
+autodetach on
+
+# Show date and screen list
+hardstatus alwayslastline "%{= rw} %H %{= wk}%-Lw%{= bw}%n%f* %t%{= wk}%+Lw %{= wk}%=%{= gk} %y/%m/%d %c "
