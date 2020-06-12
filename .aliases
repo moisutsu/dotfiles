@@ -1,33 +1,43 @@
 #!/bin/zsh
 
-type exa > /dev/null 2>&1 && alias ls=exa
-alias find=fd
-alias dump=hexyl
-# docker run tmp-contaner
-alias drt="docker run --rm -it"
-alias doc="docker-compose"
+# utils
 alias tree="exa -T"
+alias find="fd"
+alias dump="hexyl"
+alias reload="exec $SHELL -l"
+alias c="code"
+
+# docker
+alias d="docker"
+alias drt="docker run --rm -it"
+alias dc="docker-compose"
+
+# cargo-atcoder
 alias ca="cargo atcoder"
 alias cas="ca submit"
 alias can="ca new"
 alias cate="ca test"
+
+# Poetry
 alias poer="poetry run"
 alias poep="poetry run python"
 alias poes="poetry shell"
-alias reload="exec $SHELL -l"
 
 # git
+alias g="git"
 alias ga="git add"
 alias gc="git commit"
 alias gp="git push"
+alias gs="git status"
+alias gd="git diff"
+alias gl="git log"
+alias glo="git log --oneline"
 alias gaa="git add -A"
 alias gcm="git commit -m"
 alias gca="git commit --amend"
 alias grhh="git reset --hard HEAD"
 alias gpuom="git push -u origin master"
 alias hc="hub create"
-alias cdm="$HOME/ghq/github.com/moisutsu"
-alias cdp="$HOME/ghq/github.com/moisutsu-playground"
 
 # lab jupyter lab
 # Usage: labjupyer fvcrc-1
@@ -37,5 +47,14 @@ alias labjupyter="ssh -L 8888:localhost:9999 lab -t ssh -L 9999:localhost:9999"
 alias lh="localhost"
 
 # ls
+type exa > /dev/null 2>&1 && alias ls="exa"
+alias ll="ls -lh"
 alias la="ls -a"
-alias lla="ls -la"
+alias lla="ls -lah"
+
+# cd
+alias cdm="$HOME/ghq/github.com/moisutsu"
+alias cdp="$HOME/ghq/github.com/moisutsu-playground"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
