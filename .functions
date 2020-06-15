@@ -39,3 +39,9 @@ function peco-src () {
 }
 zle -N peco-src
 bindkey '^]' peco-src
+
+# Downloadsディレクトリの最新のファイルをカレントディレクトリに移動
+function mvdl () {
+  local file=`\ls -t $HOME/Downloads | head -1`
+  mv $HOME/Downloads/$file `pwd`
+}
