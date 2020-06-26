@@ -41,8 +41,12 @@ alias gpuom="git push -u origin master"
 alias hc="hub create"
 
 # lab jupyter lab
-# Usage: labjupyer fvcrc-1
-alias labjupyter="ssh -L 8888:localhost:9999 lab -t ssh -L 9999:localhost:9999"
+# Usage: sjlab fvcrc-1
+# Detach: Ctrl-j -> d
+# Attach: screen -r lab
+# Finish: Ctrl-d
+alias -g labjupyter="ssh -L 8888:localhost:9999 lab -t ssh -L 9999:localhost:9999"
+alias sjlab="screen -S lab labjupyter"
 
 # utils
 alias lh="localhost"
