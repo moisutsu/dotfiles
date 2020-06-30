@@ -64,3 +64,6 @@ alias cdd="$HOME/dotfiles"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+
+# top
+type htop > /dev/null 2>&1 && alias top="htop"
