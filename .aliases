@@ -22,6 +22,7 @@ alias cate="ca test"
 alias poer="poetry run"
 alias poep="poetry run python"
 alias poes="poetry shell"
+alias poej="poetry run jupyter lab"
 
 # git
 alias g="git"
