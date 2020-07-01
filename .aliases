@@ -6,6 +6,7 @@ alias find="fd"
 alias dump="hexyl"
 alias reload="exec $SHELL -l"
 alias c="code"
+alias lh="localhost"
 
 # docker
 alias d="docker"
@@ -48,9 +49,6 @@ alias hc="hub create"
 # Finish: Ctrl-d
 alias -g labjupyter="ssh -L 8888:localhost:9999 lab -t ssh -L 9999:localhost:9999"
 alias sjlab="screen -S lab labjupyter"
-
-# utils
-alias lh="localhost"
 
 # ls
 type exa > /dev/null 2>&1 && alias ls="exa"
