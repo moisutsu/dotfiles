@@ -45,3 +45,8 @@ function mvdl () {
   local file=`\ls -t $HOME/Downloads | head -1`
   mv $HOME/Downloads/$file `pwd`
 }
+
+# 指定したファイルの絶対パスを取得
+function path () {
+  echo "$(cd $(dirname "$1");pwd)/$(basename "$1")"
+}
