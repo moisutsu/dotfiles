@@ -43,7 +43,11 @@ bindkey '^]' peco-src
 # Downloadsディレクトリの最新のファイルをカレントディレクトリに移動
 function mvdl () {
   local file=`\ls -t $HOME/Downloads | head -1`
-  mv $HOME/Downloads/$file `pwd`
+  if [ $# -eq 1 ]; then
+    mv $HOME/Downloads/$file `pwd`/$1
+  else
+    mv $HOME/Downloads/$file `pwd`
+  fi
 }
 
 # 指定したファイルの絶対パスを取得
