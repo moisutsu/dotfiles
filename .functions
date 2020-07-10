@@ -54,3 +54,8 @@ function mvdl () {
 function path () {
   echo "$(cd $(dirname "$1");pwd)/$(basename "$1")"
 }
+
+# Usege: slab <screen_name> <server_name>
+function sjab () {
+  screen -S $1 ssh $2
+}
