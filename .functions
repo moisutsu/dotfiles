@@ -56,6 +56,6 @@ function path () {
 }
 
 # Usege: slab <screen_name> <server_name>
-function sjab () {
+function slab () {
   screen -S $1 ssh $2
 }
