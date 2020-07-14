@@ -19,9 +19,7 @@ do
     ln -snfv $DOT_DIRECTORY/$f $HOME/$f
 done
 
-if [ -z "$(ls -a $BACKUP_DIRECTORY)" ]; then
-    rmdir $BACKUP_DIRECTORY
-fi
+rmdir -p $BACKUP_DIRECTORY 2>/dev/null
 
 mkdir -p $HOME/.emacs.d
 ln -snfv $DOT_DIRECTORY/emacs/init.el $HOME/.emacs.d/init.el
