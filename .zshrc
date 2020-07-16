@@ -1,8 +1,3 @@
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
 # .aliasesを読み込み
 [ -f $HOME/.aliases ] && source $HOME/.aliases
 
@@ -18,3 +13,5 @@ compinit
 
 # .zshrc.local 環境依存の設定を記述
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+
+eval "$(starship init zsh)"
