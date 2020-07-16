@@ -23,6 +23,3 @@ rmdir -p $BACKUP_DIRECTORY 2>/dev/null
 
 mkdir -p $HOME/.emacs.d
 ln -snfv $DOT_DIRECTORY/emacs/init.el $HOME/.emacs.d/init.el
-
-mkdir -p $HOME/.config
-ln -snfv $DOT_DIRECTORY/starship/starship.toml $HOME/.config/starship.toml
