@@ -52,7 +52,12 @@ function mvdl () {
 
 # 指定したファイルの絶対パスを取得
 function path () {
-  echo "$(cd $(dirname "$1");pwd)/$(basename "$1")"
+  local path="$(cd $(dirname "$1");pwd)/$(basename "$1")"
+  if [ -e $path ]; then
+    echo $path
+  else
+    echo "path: $1: No such file or directory"
+  fi
 }
 
 # Usege: slab <screen_name> <server_name>
