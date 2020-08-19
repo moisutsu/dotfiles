@@ -41,6 +41,7 @@ alias gca="git commit --amend"
 alias grhh="git reset --hard HEAD"
 alias gpuom="git push -u origin master"
 alias hc="hub create"
+alias grall="git add -A && git reset --hard HEAD"
 
 # lab jupyter lab
 # Usage: sjlab fvcrc-1
