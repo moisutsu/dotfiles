@@ -7,6 +7,7 @@ alias dump="hexyl"
 alias reload="exec $SHELL -l"
 alias c="code"
 alias lh="localhost"
+alias rtmp="rm -rf $HOME/tmp && mkdir $HOME/tmp"
 
 # docker
 alias d="docker"
