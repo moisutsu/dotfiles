@@ -74,3 +74,18 @@ function path () {
 function slab () {
   screen -S $1 ssh $2
 }
+
+# Add a file that will automatically execute cargo fmt on commit.
+function pre-commit-cargo-fmt () {
+  echo "
+#\!/bin/sh
+
+cargo fmt
+
+for FILE in \`git diff --staged --name-only\`; do
+    git add \$FILE
+done
+" > pre-commit
+  chmod 755 pre-commit
+  mv pre-commit .git/hooks/pre-commit
+}
