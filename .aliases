@@ -20,6 +20,7 @@ alias ccs="cargo compete submit"
 alias ccn="cargo compete new"
 alias cct="cargo compete test"
 alias cco="cargo compete open"
+alias ccd="cargo compete download"
 
 # Poetry
 alias poer="poetry run"
