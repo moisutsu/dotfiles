@@ -14,11 +14,12 @@ alias d="docker"
 alias drt="docker run --rm -it"
 alias dc="docker-compose"
 
-# cargo-atcoder
-alias ca="cargo atcoder"
-alias cas="ca submit"
-alias can="ca new"
-alias cate="ca test"
+# cargo-compete
+alias cac="cargo compete"
+alias ccs="cargo compete submit"
+alias ccn="cargo compete new"
+alias cct="cargo compete test"
+alias cco="cargo compete open"
 
 # Poetry
 alias poer="poetry run"
