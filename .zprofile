@@ -80,3 +80,6 @@ fi
 
 # anyenv
 type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
+
+# gh completion
+eval "$(gh completion --shell zsh)"
