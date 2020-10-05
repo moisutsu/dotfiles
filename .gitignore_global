@@ -1,5 +1,5 @@
+# For macOS
 # https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
-
 # General
 .DS_Store
 .AppleDouble
@@ -27,3 +27,15 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# For VSCode
+# https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
