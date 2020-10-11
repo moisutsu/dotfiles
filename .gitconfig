@@ -10,3 +10,5 @@
 	root = ~/ghq
 [commit]
 	template = ~/.commit_template
+[credential]
+	helper = cache
