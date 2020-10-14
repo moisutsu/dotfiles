@@ -23,10 +23,10 @@ alias cco="cargo compete open"
 alias ccd="cargo compete download"
 
 # Poetry
-alias poer="poetry run"
-alias poep="poetry run python"
-alias poes="poetry shell"
-alias poej="poetry run jupyter lab"
+alias -g poer="poetry run"
+alias -g poep="poetry run python"
+alias -g poes="poetry shell"
+alias -g poej="poetry run jupyter lab"
 
 # git
 alias g="git"
