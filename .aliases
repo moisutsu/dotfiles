@@ -71,3 +71,6 @@ alias ....="cd ../../.."
 
 # top
 type htop > /dev/null 2>&1 && alias top="htop"
+
+# grep
+type rg > /dev/null 2>&1 && alias -g grep="rg"
