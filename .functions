@@ -92,8 +92,8 @@ done
 
 # Utility of nohup
 # Usage: unohup <commands..> <logfile>
-function unohup () {
-  exec_commands=($@[1,-2])
-  log_file=$@[$#]
-  nohup $exec_commands > $log_file 2>&1 &
-}
+# function unohup () {
+#   exec_commands=($@[1,-2])
+#   log_file=$@[$#]
+#   nohup $exec_commands > $log_file 2>&1 &
+# }
