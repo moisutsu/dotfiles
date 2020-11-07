@@ -7,4 +7,4 @@ bash $HOME/dotfiles/link.sh
 bash $HOME/dotfiles/install.sh
 
 # .bashrcにより zsh を起動
-exec bash
+bash
