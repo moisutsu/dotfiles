@@ -89,11 +89,3 @@ done
   chmod 755 pre-commit
   mv pre-commit .git/hooks/pre-commit
 }
-
-# Utility of nohup
-# Usage: unohup <commands..> <logfile>
-# function unohup () {
-#   exec_commands=($@[1,-2])
-#   log_file=$@[$#]
-#   nohup $exec_commands > $log_file 2>&1 &
-# }
