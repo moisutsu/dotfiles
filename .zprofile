@@ -69,15 +69,12 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
 fi
 
 # Homebrew
-if command -v brew 1>/dev/null 2>&1; then
-  if [ ! "$(uname)" = 'Darwin' ]; then
-      export HOMEBREW_NO_ENV_FILTERING=1
-      if [ -e $HOME/.linuxbrew/bin/brew ];then
-          eval $($HOME/.linuxbrew/bin/brew shellenv)
-      else
-          eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-      fi
-  fi
+if [ ! "$(uname)" = 'Darwin' ]; then
+    if [ -e $HOME/.linuxbrew/bin/brew ]; then
+        eval $($HOME/.linuxbrew/bin/brew shellenv)
+    elif [ -e /home/linuxbrew/.linuxbrew/bin/brew ]; then
+        eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    fi
 fi
 
 # anyenv
