@@ -46,19 +46,3 @@ compinit
 
 # .zshrc.local 環境依存の設定を記述
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/jun/.anyenv/envs/pyenv/versions/anaconda3-2020.07/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/jun/.anyenv/envs/pyenv/versions/anaconda3-2020.07/etc/profile.d/conda.sh" ]; then
-        . "/Users/jun/.anyenv/envs/pyenv/versions/anaconda3-2020.07/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/jun/.anyenv/envs/pyenv/versions/anaconda3-2020.07/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
