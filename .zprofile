@@ -17,7 +17,7 @@ fi
 # Editors
 #
 
-export EDITOR='emacs'
+export EDITOR='code --wait'
 export VISUAL='emacs'
 export PAGER='less'
 
