@@ -82,3 +82,6 @@ type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
 
 # gh completion
 type gh > /dev/null 2>&1 && eval "$(gh completion --shell zsh)"
+
+# direnv
+type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
