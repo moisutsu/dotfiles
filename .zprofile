@@ -29,16 +29,6 @@ if [[ -z "$LANG" ]]; then
   export LANG='ja_JP.UTF-8'
 fi
 
-#
-# Paths
-#
-
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.poetry/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/go/bin
-
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
@@ -68,6 +58,15 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
+# anyenv
+type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
+
+# gh completion
+type gh > /dev/null 2>&1 && eval "$(gh completion --shell zsh)"
+
+# direnv
+type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
+
 # Homebrew
 if [ ! "$(uname)" = 'Darwin' ]; then
     if [ -e $HOME/.linuxbrew/bin/brew ]; then
@@ -77,11 +76,12 @@ if [ ! "$(uname)" = 'Darwin' ]; then
     fi
 fi
 
-# anyenv
-type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
+#
+# Paths
+#
 
-# gh completion
-type gh > /dev/null 2>&1 && eval "$(gh completion --shell zsh)"
-
-# direnv
-type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/go/bin
