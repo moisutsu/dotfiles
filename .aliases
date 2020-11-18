@@ -34,7 +34,6 @@ alias -g poes="poetry shell"
 alias -g poej="poetry run jupyter lab"
 
 # git
-alias g="git"
 alias ga="git add"
 alias gc="git commit"
 alias gf="git fetch"
