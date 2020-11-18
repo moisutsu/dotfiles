@@ -40,6 +40,16 @@ function peco-src () {
 zle -N peco-src
 bindkey '^]' peco-src
 
+# peco で履歴をインクリメントサーチ ctrl-r
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
+
 # Downloadsディレクトリの最新のファイルをカレントディレクトリに移動
 function mvdl () {
   local file=`\ls -t $HOME/Downloads | head -1`

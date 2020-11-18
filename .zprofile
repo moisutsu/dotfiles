@@ -85,3 +85,7 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/go/bin
+
+if [ "$(uname)" = 'Darwin' ]; then
+  PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+fi
