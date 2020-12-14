@@ -1,63 +1,14 @@
 format = """\
-$shlvl\
-$kubernetes\
 $directory\
 $git_branch\
-$git_commit\
-$git_state\
 $git_status\
-$hg_branch\
-$docker_context\
-$package\
-$cmake\
-$dart\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$golang\
-$helm\
-$java\
-$julia\
-$nim\
-$nodejs\
-$ocaml\
-$perl\
-$php\
-$purescript\
-$python\
-$ruby\
-$rust\
-$swift\
-$terraform\
-$zig\
-$nix_shell\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$env_var\
-$crystal\
 $username\
 $hostname\
 $cmd_duration\
 $line_break\
 $conda\
-$custom\
-$lua\
-$jobs\
-$battery\
-$time\
-$status\
 $character\
 """
-
-[character]
-success_symbol = "[❯](bold fg:147)"
-error_symbol = "[❯](bold red)"
-
-[cmd_duration]
-format = "[$duration](bold yellow) "
 
 [directory]
 truncation_length = 10
@@ -69,16 +20,20 @@ format = "[$branch](fg:245)"
 always_show_remote = true
 
 [git_status]
-format = "[$all_status](red) "
+format = "[$all_status](red)"
 
 [username]
-format = "[$user@](fg:245)"
+format = " [$user@](fg:245)"
 
 [hostname]
-format = "[$hostname](fg:245) "
+format = "[$hostname](fg:245)"
 
-[python]
-disabled = true
+[cmd_duration]
+format = " [$duration](bold yellow)"
 
 [conda]
 format = "[$environment](fg:245) "
+
+[character]
+success_symbol = "[❯](bold fg:147)"
+error_symbol = "[❯](bold red)"
