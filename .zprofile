@@ -59,7 +59,7 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
 fi
 
 # anyenv
-type anyenv > /dev/null 2>&1 && eval "$(anyenv init -)"
+type anyenv > /dev/null 2>&1 && eval "$(anyenv init - --no-rehash)"
 
 # Homebrew
 if [ ! "$(uname)" = 'Darwin' ]; then
