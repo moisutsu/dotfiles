@@ -36,7 +36,12 @@ setopt complete_in_word
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
 
+# highlight
 zle_highlight=('paste:none')
+
+# nobeep
+setopt no_beep
+setopt nolistbeep
 
 # fpath
 fpath+=~/.zfunc
