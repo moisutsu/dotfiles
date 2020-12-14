@@ -6,7 +6,7 @@
 
 # history
 export HISTSIZE=1000
-export SAVEHIST=100000
+export SAVEHIST=1000000
 export HISTFILE=$HOME/.zsh_history
 setopt hist_ignore_dups
 setopt EXTENDED_HISTORY
