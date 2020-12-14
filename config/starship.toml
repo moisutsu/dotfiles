@@ -1,4 +1,4 @@
-format = """
+format = """\
 $username\
 $shlvl\
 $kubernetes\
@@ -40,17 +40,23 @@ $gcloud\
 $openstack\
 $env_var\
 $crystal\
+$hostname\
 $cmd_duration\
-$custom\
 $line_break\
+$custom\
 $lua\
 $jobs\
 $battery\
 $time\
 $status\
 $character\
-$hostname"""
+"""
 
+[username]
+format = "[$user](blue) "
+
+[cmd_duration]
+format = "[$duration](bold yellow) "
 
 [directory]
 truncation_length = 10
@@ -65,3 +71,7 @@ tag_symbol = "🔖 "
 [git_status]
 modified = "*"
 untracked = "*"
+
+[hostname]
+ssh_only = true
+format = "[$hostname](gray)"
