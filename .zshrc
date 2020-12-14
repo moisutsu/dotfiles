@@ -19,17 +19,28 @@ setopt hist_no_store
 setopt hist_expand
 setopt inc_append_history
 
+# Complement
+autoload -U compinit
+compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*:default' menu select=2
+setopt auto_param_slash
+setopt mark_dirs
+setopt list_types
+setopt auto_menu
+setopt auto_param_keys
+setopt interactive_comments
+setopt magic_equal_subst
+setopt complete_in_word
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
+
 # fpath
 fpath+=~/.zfunc
 
-# zsh 補間
-autoload -U compinit
-compinit
-
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
 # .zshrc.local 環境依存の設定を記述
-[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+[ -f $HOME/.zshrc.local ] &&
+source $HOME/.zshrc.local
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
