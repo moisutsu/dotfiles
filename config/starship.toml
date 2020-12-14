@@ -65,7 +65,3 @@ tag_symbol = "🔖 "
 [git_status]
 modified = "*"
 untracked = "*"
-
-[hostname]
-ssh_only = true
-format = "[$hostname]"
