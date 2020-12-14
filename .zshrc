@@ -1,35 +1,22 @@
-# .aliasesを読み込み
+# load .aliases
 [ -f $HOME/.aliases ] && source $HOME/.aliases
 
-# 自作シェススクリプトの読み込み
+# load .functions
 [ -f $HOME/.functions ] && source $HOME/.functions
 
 # history
-# メモリに保存される履歴の件数
 export HISTSIZE=1000
-# 履歴ファイルに保存される履歴の件数
 export SAVEHIST=100000
-# 重複を記録しない
 setopt hist_ignore_dups
-# 開始と終了を記録
 setopt EXTENDED_HISTORY
-# historyを共有
 setopt share_history
-# ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
 setopt hist_ignore_all_dups
-# スペースで始まるコマンド行はヒストリリストから削除
 setopt hist_ignore_space
-# ヒストリを呼び出してから実行する間に一旦編集可能
 setopt hist_verify
-# 余分な空白は詰めて記録
 setopt hist_reduce_blanks
-# 古いコマンドと同じものは無視
 setopt hist_save_no_dups
-# historyコマンドは履歴に登録しない
 setopt hist_no_store
-# 補完時にヒストリを自動的に展開
 setopt hist_expand
-# 履歴をインクリメンタルに追加
 setopt inc_append_history
 
 # fpath
@@ -39,50 +26,36 @@ fpath+=~/.zfunc
 autoload -U compinit
 compinit
 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
 # .zshrc.local 環境依存の設定を記述
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
+
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+
+### End of Zinit's installer chunk
+
 # load starship
 eval "$(starship init zsh)"
-
-
-# alwaystoend           on
-# autocd                on
-# autopushd             on
-# autoresume            on
-# nobgnice              on
-# nocaseglob            on
-# cdablevars            on
-# nocheckjobs           on
-# noclobber             on
-# combiningchars        on
-# completeinword        on
-# correct               on
-# extendedglob          on
-# extendedhistory       on
-# noflowcontrol         on
-# histexpiredupsfirst   on
-# histfindnodups        on
-# histignorealldups     on
-# histignoredups        on
-# histignorespace       on
-# histnostore           on
-# histreduceblanks      on
-# histsavenodups        on
-# histverify            on
-# nohup                 on
-# incappendhistory      on
-# interactive           on
-# interactivecomments   on
-# login                 on
-# longlistjobs          on
-# pathdirs              on
-# nopromptcr            on
-# nopromptsp            on
-# promptsubst           on
-# pushdignoredups       on
-# pushdsilent           on
-# pushdtohome           on
-# rcquotes              on
-# sharehistory          on
-# shinstdin             on
