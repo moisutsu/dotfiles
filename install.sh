@@ -29,4 +29,7 @@ fi
 anyenv install --init
 
 # prezto
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+
+# starship
+curl -fsSL https://starship.rs/install.sh | bash
