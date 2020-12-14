@@ -1,3 +1,72 @@
+format = """
+$username\
+$shlvl\
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$cmd_duration\
+$custom\
+$line_break\
+$lua\
+$jobs\
+$battery\
+$time\
+$status\
+$character\
+$hostname"""
+
+
 [directory]
 truncation_length = 10
 truncate_to_repo = false
+
+[git_branch]
+symbol = "🌱 "
+
+[git_commit]
+tag_symbol = "🔖 "
+
+[git_status]
+ahead = "⬆️"
+modified = "*"
+untracked = "*"
+
+[hostname]
+ssh_only = true
+format = "[$hostname]"
