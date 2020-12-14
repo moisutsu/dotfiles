@@ -75,7 +75,6 @@ format = "[$all_status](red) "
 format = "[$user@](fg:245)"
 
 [hostname]
-ssh_only = true
 format = "[$hostname](fg:245) "
 
 [python]
