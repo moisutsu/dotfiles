@@ -71,9 +71,9 @@ alias la="ls -a"
 alias lla="ls -lah"
 
 # cd
-alias cdm="$HOME/ghq/github.com/moisutsu"
-alias cdp="$HOME/ghq/github.com/moisutsu-playground"
-alias cdd="$HOME/dotfiles"
+alias cdm="cd $HOME/ghq/github.com/moisutsu"
+alias cdp="cd $HOME/ghq/github.com/moisutsu-playground"
+alias cdd="cd $HOME/dotfiles"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
