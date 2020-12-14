@@ -1,5 +1,4 @@
 format = """\
-$username\
 $shlvl\
 $kubernetes\
 $directory\
@@ -33,16 +32,17 @@ $swift\
 $terraform\
 $zig\
 $nix_shell\
-$conda\
 $memory_usage\
 $aws\
 $gcloud\
 $openstack\
 $env_var\
 $crystal\
+$username\
 $hostname\
 $cmd_duration\
 $line_break\
+$conda\
 $custom\
 $lua\
 $jobs\
@@ -52,8 +52,9 @@ $status\
 $character\
 """
 
-[username]
-format = "[$user](blue) "
+[character]
+success_symbol = "[❯](bold fg:147)"
+error_symbol = "[❯](bold red)"
 
 [cmd_duration]
 format = "[$duration](bold yellow) "
@@ -61,17 +62,23 @@ format = "[$duration](bold yellow) "
 [directory]
 truncation_length = 10
 truncate_to_repo = false
+format = "[$path](purple)[$read_only](purple) "
 
 [git_branch]
-symbol = "🌱 "
-
-[git_commit]
-tag_symbol = "🔖 "
+format = "[$branch](fg:245)"
 
 [git_status]
-modified = "*"
-untracked = "*"
+format = "[$all_status](red) "
+
+[username]
+format = "[$user@](fg:245)"
 
 [hostname]
 ssh_only = true
-format = "[$hostname](gray)"
+format = "[$hostname](fg:245) "
+
+[python]
+disabled = true
+
+[conda]
+format = "[$environment](fg:245) "
