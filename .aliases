@@ -13,6 +13,7 @@ alias reload="exec $SHELL -l"
 alias c="code"
 alias lh="localhost"
 alias rtmp="rm -rf $HOME/tmp && mkdir $HOME/tmp"
+alias sl="ls"
 
 # docker
 alias d="docker"

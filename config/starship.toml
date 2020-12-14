@@ -66,6 +66,7 @@ format = "[$path](purple)[$read_only](purple) "
 
 [git_branch]
 format = "[$branch](fg:245)"
+always_show_remote = true
 
 [git_status]
 format = "[$all_status](red) "
