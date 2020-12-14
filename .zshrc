@@ -1,8 +1,3 @@
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
 # .aliasesを読み込み
 [ -f $HOME/.aliases ] && source $HOME/.aliases
 
@@ -46,3 +41,48 @@ compinit
 
 # .zshrc.local 環境依存の設定を記述
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+
+# load starship
+eval "$(starship init zsh)"
+
+
+# alwaystoend           on
+# autocd                on
+# autopushd             on
+# autoresume            on
+# nobgnice              on
+# nocaseglob            on
+# cdablevars            on
+# nocheckjobs           on
+# noclobber             on
+# combiningchars        on
+# completeinword        on
+# correct               on
+# extendedglob          on
+# extendedhistory       on
+# noflowcontrol         on
+# histexpiredupsfirst   on
+# histfindnodups        on
+# histignorealldups     on
+# histignoredups        on
+# histignorespace       on
+# histnostore           on
+# histreduceblanks      on
+# histsavenodups        on
+# histverify            on
+# nohup                 on
+# incappendhistory      on
+# interactive           on
+# interactivecomments   on
+# login                 on
+# longlistjobs          on
+# pathdirs              on
+# nopromptcr            on
+# nopromptsp            on
+# promptsubst           on
+# pushdignoredups       on
+# pushdsilent           on
+# pushdtohome           on
+# rcquotes              on
+# sharehistory          on
+# shinstdin             on
