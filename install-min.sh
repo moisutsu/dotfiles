@@ -14,7 +14,7 @@ if !(command -v zsh 1>/dev/null 2>&1); then
     brew install zsh
 fi
 
-# prezto
+# zinit
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
 # starship

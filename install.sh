@@ -28,7 +28,7 @@ fi
 # anyenv
 anyenv install --init
 
-# prezto
+# zinit
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
 # starship
