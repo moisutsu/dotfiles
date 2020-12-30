@@ -79,7 +79,8 @@ zinit wait lucid for \
     atload"!_zsh_autosuggest_start" \
         zsh-users/zsh-autosuggestions
 
-### End of Zinit's installer chunk
+# load pure
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light sindresorhus/pure
 
-# load starship
-eval "$(starship init zsh)"
+### End of Zinit's installer chunk
