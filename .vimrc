@@ -21,3 +21,5 @@ syntax enable
 set list listchars=tab:\▸\-
 set expandtab
 
+" Clipboard settings
+set clipboard+=unnamedplus
