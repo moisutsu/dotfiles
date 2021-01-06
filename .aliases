@@ -25,6 +25,13 @@ alias c="code"
 alias lh="localhost"
 alias rtmp="rm -rf $HOME/tmp && mkdir $HOME/tmp"
 
+# utils global aliases
+alias -g G="| grep"
+alias -g C="| pbcopy"
+alias -g H="| head"
+alias -g T="| tail"
+alias -g L="| lv"
+
 # docker
 alias d="docker"
 alias drt="docker run --rm -it"
