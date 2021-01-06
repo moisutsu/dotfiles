@@ -1,0 +1,4 @@
+" Vim settings for VSCode Neo Vim
+
+" Clipboard settings
+set clipboard+=unnamedplus
