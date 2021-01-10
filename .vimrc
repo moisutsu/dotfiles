@@ -23,3 +23,6 @@ set expandtab
 
 " Clipboard settings
 set clipboard+=unnamedplus
+
+" No beep
+set belloff=all
