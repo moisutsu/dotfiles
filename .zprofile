@@ -17,8 +17,8 @@ fi
 # Editors
 #
 
-export EDITOR='code --wait'
-export VISUAL='emacs'
+export EDITOR='vim'
+export VISUAL='vim'
 export PAGER='less'
 
 #
