@@ -8,7 +8,6 @@ set showcmd
 
 " display settings
 set number
-set virtualedit=onemore
 set smartindent
 set showmatch
 set laststatus=2
