@@ -75,14 +75,6 @@ alias gpsuom="git push -u origin main"
 alias hc="hub create"
 alias hb="hub browse"
 
-# lab jupyter lab
-# Usage: sjlab fvcrc-1
-# Detach: Ctrl-j -> d
-# Attach: screen -r lab
-# Finish: Ctrl-d
-alias -g labjupyter="ssh -L 9999:localhost:9999 lab -t ssh -L 9999:localhost:9999"
-alias sjlab="screen -S lab labjupyter"
-
 # ls
 alias ll="ls -lh"
 alias la="ls -a"
