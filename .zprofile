@@ -58,6 +58,9 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
+# emacs keybind on zsh
+bindkey -e
+
 # anyenv
 type anyenv > /dev/null 2>&1 && eval "$(anyenv init - --no-rehash)"
 
