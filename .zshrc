@@ -43,6 +43,9 @@ zle_highlight=('paste:none')
 setopt no_beep
 setopt nolistbeep
 
+# dir stack
+setopt AUTO_PUSHD
+
 # fpath
 fpath+=~/.zfunc
 
