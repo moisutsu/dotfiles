@@ -72,11 +72,6 @@ function path () {
   fi
 }
 
-# Usege: slab <screen_name> <server_name>
-function slab () {
-  screen -S $1 ssh $2
-}
-
 # Add a file that will automatically execute cargo fmt on commit.
 function pre-commit-cargo-fmt () {
   echo "
