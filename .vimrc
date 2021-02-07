@@ -21,7 +21,7 @@ set list listchars=tab:\▸\-
 set expandtab
 
 " Clipboard settings
-set clipboard+=unnamedplus
+set clipboard+=unnamed
 
 " No beep
 set belloff=all
