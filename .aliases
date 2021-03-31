@@ -69,8 +69,6 @@ alias glo="git log --oneline"
 alias gaa="git add -A"
 alias gcm="git commit -m"
 alias gca="git commit --amend"
-alias grhh="git reset --hard HEAD"
-alias grall="git add -A && git reset --hard HEAD"
 alias gpsuom="git push -u origin main"
 
 alias hc="hub create"
