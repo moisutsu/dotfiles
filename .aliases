@@ -89,3 +89,6 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias .......="cd ../../../../../.."
+
+# Open Applications
+alias acrobat="open -a /Applications/Adobe\ Acrobat\ Reader\ DC.app"
