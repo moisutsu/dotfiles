@@ -92,3 +92,5 @@ alias .......="cd ../../../../../.."
 
 # Open Applications
 alias acrobat="open -a /Applications/Adobe\ Acrobat\ Reader\ DC.app"
+alias chrome="open -n '/Applications/Google Chrome.app'"
+
