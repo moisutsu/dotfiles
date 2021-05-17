@@ -44,3 +44,7 @@ window:
   decorations: buttonless
   startup_mode: SimpleFullscreen
 background_opacity: 0.80
+
+key_bindings:
+  - { key: Plus,  mods: Command, action: IncreaseFontSize}
+  - { key: Minus, mods: Command, action: DecreaseFontSize}
