@@ -3,6 +3,9 @@
 " Clipboard settings
 set clipboard+=unnamed
 
+" Start Vim in insert mode
+autocmd BufRead,BufNewFile * start
+
 " dein.vim settings {{{
 " install dir {{{
 let s:dein_dir = expand('~/.cache/dein')
