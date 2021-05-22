@@ -17,7 +17,7 @@ nnoremap k gk
 syntax enable
 
 " Tab settings
-set list listchars=tab:\▸\-
+set list listchars=tab:\>\-
 set expandtab
 
 " Clipboard settings
