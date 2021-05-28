@@ -4,6 +4,9 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore_global
+	ignorecase = false
+	quotepath = false
+	autocrlf = false
 [merge]
 	tool = vim \"$MERGED\"
 [ghq]
@@ -23,3 +26,10 @@
 	prune = true
 [pull]
 	rebase = false
+[color]
+	ui = true
+	diff = auto
+	status = auto
+	branch = auto
+[status]
+	showUntrackedFiles = all
