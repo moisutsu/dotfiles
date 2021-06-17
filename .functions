@@ -2,32 +2,32 @@
 
 # playgroundでリポジトリを作成
 function hcp () {
-  local CURRENT_DIR=`basename $(pwd)`
-  hub create moisutsu-playground/$CURRENT_DIR
+    local CURRENT_DIR=`basename $(pwd)`
+    hub create moisutsu-playground/$CURRENT_DIR
 }
 
 function localhost () {
-  open http://localhost:$1
+    open http://localhost:$1
 }
 
 # make playground repository
 function mkpr () {
-  if [ $# -eq 1 ]; then
-    cdp
-    mkdcd $1
-    git init
-    hcp
-  fi
+    if [ $# -eq 1 ]; then
+        cdp
+        mkdcd $1
+        git init
+        hcp
+    fi
 }
 
 # ghq + peco でgitリポジトリをインクリメントサーチ
 function peco-src () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-  zle clear-screen
+    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
 }
 zle -N peco-src
 bindkey '^]' peco-src
@@ -44,12 +44,12 @@ bindkey '^R' peco-history-selection
 
 # Downloadsディレクトリの最新のファイルをカレントディレクトリに移動
 function mvdl () {
-  local file=`\ls -t $HOME/Downloads | head -1`
-  if [ $# -eq 1 ]; then
-    mv $HOME/Downloads/$file `pwd`/$1
-  else
-    mv $HOME/Downloads/$file `pwd`
-  fi
+    local file=`\ls -t $HOME/Downloads | head -1`
+    if [ $# -eq 1 ]; then
+        mv $HOME/Downloads/$file `pwd`/$1
+    else
+        mv $HOME/Downloads/$file `pwd`
+    fi
 }
 
 # 指定したファイルの絶対パスを取得
@@ -64,17 +64,17 @@ function path () {
         file=$@
     fi
 
-  local full_path="$(cd $(dirname "$file");pwd)/$(basename "$file")"
-  if [ -e $full_path ]; then
-    echo $full_path
-  else
-    echo "path: $file: No such file or directory"
-  fi
+    local full_path="$(cd $(dirname "$file");pwd)/$(basename "$file")"
+    if [ -e $full_path ]; then
+        echo $full_path
+    else
+        echo "path: $file: No such file or directory"
+    fi
 }
 
 # Add a file that will automatically execute cargo fmt on commit.
 function pre-commit-cargo-fmt () {
-  echo "
+    echo "
 #\!/bin/sh
 
 cargo fmt
@@ -82,7 +82,11 @@ cargo fmt
 for FILE in \`git diff --staged --name-only\`; do
     git add \$FILE
 done
-" > pre-commit
-  chmod 755 pre-commit
-  mv pre-commit .git/hooks/pre-commit
+    " > pre-commit
+    chmod 755 pre-commit
+    mv pre-commit .git/hooks/pre-commit
+}
+
+function pbnorm () {
+    pbpaste | sed -e "s/-\n/ /g" | sed -e "s/\n/ /g" | pbcopy
 }
