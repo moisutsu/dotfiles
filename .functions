@@ -63,7 +63,7 @@ function path () {
     else
         file=$@
     fi
-    
+
     local full_path="$(cd $(dirname "$file");pwd)/$(basename "$file")"
     if [ -e $full_path ]; then
         echo $full_path
@@ -89,6 +89,6 @@ done
 
 function pbnorm () {
     local clip_board=`pbpaste`
-    local norm_text=`python -c "print(\"\"\"${clip_board}\"\"\".replace(\"-\\n\", \" \").replace(\"\\n\", \" \"))"`
+    local norm_text=`python -c "print(\"\"\"${clip_board}\"\"\".replace(\"-\\n\", \" \").replace(\"\\n\", \" \").replace(\"- \", \" \"))"`
     echo $norm_text | pbcopy
 }
