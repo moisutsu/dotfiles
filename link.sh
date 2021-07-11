@@ -1,8 +1,10 @@
 #!/bin/bash
 
 DOT_DIRECTORY="$HOME/dotfiles"
-SPECIFY_FILES=(Brewfile)
+DOTCONFIG_DIRECTORY="$HOME/.config"
 BACKUP_DIRECTORY="$HOME/.backup/dotfiles"
+SPECIFY_FILES=(Brewfile)
+DOTCONFIG_FILES=(kitty)
 
 cd `dirname $0`
 
@@ -21,3 +23,8 @@ done
 
 rmdir -p $BACKUP_DIRECTORY 2>/dev/null
 
+mkdir -p $DOTCONFIG_DIRECTORY
+for f in ${DOTCONFIG_FILES[@]}
+do
+    ln -snfv $DOT_DIRECTORY/$f $DOTCONFIG_DIRECTORY/$f
+done

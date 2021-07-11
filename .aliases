@@ -94,3 +94,6 @@ alias .......="cd ../../../../../.."
 alias acrobat="open -a /Applications/Adobe\ Acrobat\ Reader\ DC.app"
 alias chrome="open -n '/Applications/Google Chrome.app'"
 alias safari="open -n '/Applications/Safari.app'"
+
+# for kitty
+alias ssh="kitty +kitten ssh"
