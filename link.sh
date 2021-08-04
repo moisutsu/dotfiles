@@ -3,14 +3,13 @@
 DOT_DIRECTORY="$HOME/dotfiles"
 DOTCONFIG_DIRECTORY="$HOME/.config"
 BACKUP_DIRECTORY="$HOME/.backup/dotfiles"
-SPECIFY_FILES=(Brewfile)
 DOTCONFIG_FILES=(kitty)
 
 cd `dirname $0`
 
 mkdir -p $BACKUP_DIRECTORY
 
-for f in .??* ${SPECIFY_FILES[@]}
+for f in .??*
 do
     [[ $f = ".git" ]] && continue
     [[ $f = ".gitignore" ]] && continue
