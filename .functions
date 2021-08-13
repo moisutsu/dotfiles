@@ -33,7 +33,7 @@ zle -N peco-src
 bindkey '^]' peco-src
 
 # peco で履歴をインクリメントサーチ ctrl-r
-function peco-history-selection() {
+function peco-history-selection () {
     BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
     CURSOR=$#BUFFER
     zle reset-prompt
