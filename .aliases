@@ -32,6 +32,7 @@ alias -g H="| head"
 alias -g T="| tail"
 alias -g L="| lv"
 alias -g W="| wc"
+alias -g X="| xargs"
 
 # docker
 alias d="docker"
