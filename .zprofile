@@ -65,12 +65,12 @@ bindkey -e
 type anyenv > /dev/null 2>&1 && eval "$(anyenv init - --no-rehash)"
 
 # Homebrew
-if [ ! "$(uname)" = 'Darwin' ]; then
-    if [ -e $HOME/.linuxbrew/bin/brew ]; then
-        eval $($HOME/.linuxbrew/bin/brew shellenv)
-    elif [ -e /home/linuxbrew/.linuxbrew/bin/brew ]; then
-        eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-    fi
+if [ -e $HOME/.linuxbrew/bin/brew ]; then
+    eval $($HOME/.linuxbrew/bin/brew shellenv)
+elif [ -e /home/linuxbrew/.linuxbrew/bin/brew ]; then
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+elif [ -e /opt/homebrew/bin/brew ]; then
+    eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
 # gh completion
