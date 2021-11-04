@@ -4,6 +4,9 @@
 # load .functions
 [ -f $HOME/.functions ] && source $HOME/.functions
 
+# load .zshrc.local
+[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
+
 # pyenv
 eval "$(pyenv init -)"
 
@@ -51,10 +54,6 @@ setopt AUTO_PUSHD
 
 # fpath
 fpath+=~/.zfunc
-
-# .zshrc.local 環境依存の設定を記述
-[ -f $HOME/.zshrc.local ] &&
-source $HOME/.zshrc.local
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
