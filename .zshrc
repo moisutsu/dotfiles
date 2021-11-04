@@ -4,6 +4,9 @@
 # load .functions
 [ -f $HOME/.functions ] && source $HOME/.functions
 
+# pyenv
+eval "$(pyenv init -)"
+
 # history
 export HISTSIZE=1000
 export SAVEHIST=1000000
