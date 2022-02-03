@@ -52,26 +52,6 @@ function mvdl () {
     fi
 }
 
-# 指定したファイルの絶対パスを取得
-function path () {
-    if [ -p /dev/stdin ]; then
-        if [ "`echo $@`" = "" ]; then
-            file=`cat -`
-        else
-            file=$@
-        fi
-    else
-        file=$@
-    fi
-
-    local full_path="$(cd $(dirname "$file");pwd)/$(basename "$file")"
-    if [ -e $full_path ]; then
-        echo $full_path
-    else
-        echo "path: $file: No such file or directory"
-    fi
-}
-
 # Add a file that will automatically execute cargo fmt on commit.
 function pre-commit-cargo-fmt () {
     echo "
