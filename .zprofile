@@ -80,7 +80,7 @@ type gh > /dev/null 2>&1 && eval "$(gh completion --shell zsh)"
 type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 # pyenv
-eval "$(pyenv init --path)"
+type pyenv > /dev/null 2>&1 && eval "$(pyenv init --path)"
 
 #
 # Paths
