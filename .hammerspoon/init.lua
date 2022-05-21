@@ -5,6 +5,9 @@ hs.hotkey.bind({"ctrl"}, "t", function()
     elseif kitty:isFrontmost() then
         kitty:hide()
     else
-        hs.application.launchOrFocus("/Applications/kitty.app")
+        local win = kitty:mainWindow()
+        local space = hs.spaces.focusedSpace()
+        hs.spaces.moveWindowToSpace(win, space)
+        kitty:setFrontmost()
     end
 end)
