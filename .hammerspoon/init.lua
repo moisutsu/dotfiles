@@ -5,9 +5,12 @@ hs.hotkey.bind({"ctrl"}, "t", function()
     elseif kitty:isFrontmost() then
         kitty:hide()
     else
-        local win = kitty:mainWindow()
         local space = hs.spaces.focusedSpace()
+        local win = kitty:focusedWindow()
+        win = win:toggleFullScreen()
+        win = win:toggleFullScreen()
+        kitty:hide()
         hs.spaces.moveWindowToSpace(win, space)
-        kitty:setFrontmost()
+        win:focus()
     end
 end)
