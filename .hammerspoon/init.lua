@@ -7,9 +7,6 @@ hs.hotkey.bind({"ctrl"}, "t", function()
     else
         local space = hs.spaces.focusedSpace()
         local win = kitty:focusedWindow()
-        win = win:toggleFullScreen()
-        win = win:toggleFullScreen()
-        kitty:hide()
         hs.spaces.moveWindowToSpace(win, space)
         win:focus()
     end
