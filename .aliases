@@ -20,6 +20,7 @@ type exa > /dev/null 2>&1 && alias -g ls="exa"
 
 # utils
 type exa > /dev/null 2>&1 && alias tree="exa -T"
+type nvidia-smi > /dev/null 2>&1 && alias ns="nvidia-smi"
 alias reload="exec $SHELL -l"
 alias c="code"
 alias lh="localhost"
