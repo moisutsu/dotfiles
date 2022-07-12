@@ -89,3 +89,8 @@ zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
 
 ### End of Zinit's installer chunk
+
+# Auto start tmux
+if [[ type tmux > /dev/null 2>&1 && ! -n $TMUX && $- == *l* && -z $SSH_TTY && ! $TERM_PROGRAM == vscode ]]; then
+    tmux attach || tmux
+fi
