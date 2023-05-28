@@ -2,7 +2,7 @@
 	name = moisutsu
 	email = moisutsu@gmail.com
 [core]
-	editor = vim
+	editor = code --wait
 	excludesfile = ~/.gitignore_global
 	ignorecase = false
 	quotepath = false
@@ -14,7 +14,7 @@
 [commit]
 	template = ~/.commit_template
 [credential]
-	helper = cache
+	helper = osxkeychain
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -26,6 +26,7 @@
 	prune = true
 [pull]
 	rebase = false
+	ff = only
 [color]
 	ui = true
 	diff = auto
@@ -33,3 +34,5 @@
 	branch = auto
 [status]
 	showUntrackedFiles = all
+[push]
+	default = current
