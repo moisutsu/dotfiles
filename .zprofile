@@ -61,9 +61,6 @@ fi
 # emacs keybind on zsh
 bindkey -e
 
-# anyenv
-type anyenv > /dev/null 2>&1 && eval "$(anyenv init - --no-rehash)"
-
 # Homebrew
 if [ -e $HOME/.linuxbrew/bin/brew ]; then
     eval $($HOME/.linuxbrew/bin/brew shellenv)
@@ -79,8 +76,8 @@ type gh > /dev/null 2>&1 && eval "$(gh completion --shell zsh)"
 # direnv
 type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
-# pyenv
-type pyenv > /dev/null 2>&1 && eval "$(pyenv init --path)"
+# asdf
+. "$HOME/.asdf/asdf.sh"
 
 #
 # Paths
@@ -91,8 +88,6 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/go/bin
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 
 if [ "$(uname)" = 'Darwin' ]; then
   PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"

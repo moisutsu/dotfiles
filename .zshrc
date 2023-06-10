@@ -7,9 +7,6 @@
 # load .zshrc.local
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
-# pyenv
-eval "$(pyenv init -)"
-
 # history
 export HISTSIZE=1000
 export SAVEHIST=1000000
@@ -26,9 +23,13 @@ setopt hist_no_store
 setopt hist_expand
 setopt inc_append_history
 
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
 # Complement
-autoload -U compinit
-compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:default' menu select=2
 setopt auto_param_slash
