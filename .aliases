@@ -16,7 +16,7 @@ type htop > /dev/null 2>&1 && alias top="htop"
 type rg > /dev/null 2>&1 && alias -g grep="rg"
 type cw > /dev/null 2>&1 && alias -g wc="cw"
 type fd > /dev/null 2>&1 && alias find="fd"
-type exa > /dev/null 2>&1 && alias -g ls="exa"
+type exa > /dev/null 2>&1 && alias ls="exa"
 
 # utils
 type exa > /dev/null 2>&1 && alias tree="exa -T"
