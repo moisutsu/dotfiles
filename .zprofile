@@ -77,7 +77,7 @@ type gh > /dev/null 2>&1 && eval "$(gh completion --shell zsh)"
 type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 # asdf
-. "$HOME/.asdf/asdf.sh"
+if [ -f "$HOME/.asdf/asdf.sh" ]; then . "$HOME/.asdf/asdf.sh"; fi
 
 #
 # Paths
