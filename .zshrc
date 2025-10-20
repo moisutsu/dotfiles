@@ -7,6 +7,13 @@
 # load .zshrc.local
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 
+# switch the path of .gitconfig depending on the OS
+case "$(uname -s)" in
+    Linux*)  export GIT_CONFIG_GLOBAL="$HOME/.gitconfig.linux" ;;
+    Darwin*) export GIT_CONFIG_GLOBAL="$HOME/.gitconfig.macos" ;;
+esac
+
+
 # history
 export HISTSIZE=1000
 export SAVEHIST=1000000

@@ -1,0 +1,8 @@
+[include]
+	path = ~/.gitconfig
+
+[core]
+	editor = vim
+
+[credential]
+	helper = cache --timeout=604800
