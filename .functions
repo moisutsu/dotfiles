@@ -20,27 +20,27 @@ function mkpr () {
     fi
 }
 
-# Search the repository managed by ghq with peco and `cd`
-function ghq_repo_search_with_peco () {
+# Search the repository managed by ghq with fzf and `cd`
+function ghq_repo_search_with_fzf () {
     local selected_dir
-    selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+    selected_dir=$(ghq list -p | fzf --reverse --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
     fi
     zle clear-screen
 }
-zle -N ghq_repo_search_with_peco
-bindkey '^]' ghq_repo_search_with_peco
+zle -N ghq_repo_search_with_fzf
+bindkey '^]' ghq_repo_search_with_fzf
 
-# Search command history with peco
-function history_search_with_peco () {
-    BUFFER=$(history -n 1 | tac | awk '!a[$0]++' | peco)
+# Search command history with fzf
+function history_search_with_fzf () {
+    BUFFER=$(history -n 1 | tail -r | awk '!a[$0]++' | fzf --reverse)
     CURSOR=$#BUFFER
     zle reset-prompt
 }
-zle -N history_search_with_peco
-bindkey '^R' history_search_with_peco
+zle -N history_search_with_fzf
+bindkey '^R' history_search_with_fzf
 
 
 # Downloadsディレクトリの最新のファイルをカレントディレクトリに移動
