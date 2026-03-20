@@ -2,6 +2,6 @@
 
 git clone https://github.com/moisutsu/dotfiles "$HOME/dotfiles"
 
-bash $HOME/dotfiles/link.sh
+bash "$HOME/dotfiles/link.sh"
 
 exec zsh -l

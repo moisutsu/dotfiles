@@ -16,14 +16,21 @@ type htop > /dev/null 2>&1 && alias top="htop"
 type rg > /dev/null 2>&1 && alias -g grep="rg"
 type cw > /dev/null 2>&1 && alias -g wc="cw"
 type fd > /dev/null 2>&1 && alias find="fd"
-type exa > /dev/null 2>&1 && alias ls="exa"
+if type eza > /dev/null 2>&1; then
+    alias ls="eza"
+elif type exa > /dev/null 2>&1; then
+    alias ls="exa"
+fi
 
 # utils
-type exa > /dev/null 2>&1 && alias tree="exa -T"
+if type eza > /dev/null 2>&1; then
+    alias tree="eza -T"
+elif type exa > /dev/null 2>&1; then
+    alias tree="exa -T"
+fi
 type nvidia-smi > /dev/null 2>&1 && alias ns="nvidia-smi"
 alias reload="exec $SHELL -l"
 alias c="code"
-alias lh="localhost"
 alias rtmp="rm -rf $HOME/tmp && mkdir $HOME/tmp"
 
 # utils global aliases
@@ -35,25 +42,6 @@ alias -g L="| less"
 type lv > /dev/null 2>&1 && alias -g L="| lv"
 alias -g W="| wc"
 alias -g X="| xargs"
-
-# docker
-alias d="docker"
-alias drt="docker run --rm -it"
-alias dc="docker-compose"
-
-# cargo-compete
-alias cac="cargo compete"
-alias ccs="cargo compete submit"
-alias ccn="cargo compete new"
-alias cct="cargo compete test"
-alias cco="cargo compete open"
-alias ccd="cargo compete download"
-
-# Poetry
-alias -g poer="poetry run"
-alias -g poep="poetry run python"
-alias -g poes="poetry shell"
-alias -g poej="poetry run jupyter lab"
 
 # git
 alias ga="git add"
@@ -74,17 +62,12 @@ alias gcm="git commit -m"
 alias gca="git commit --amend"
 alias gpsuom="git push -u origin main"
 
-alias hc="hub create"
-alias hb="hub browse"
-
 # ls
 alias ll="ls -lh"
 alias la="ls -a"
 alias lla="ls -lah"
 
 # cd
-alias cdm="cd $HOME/ghq/github.com/moisutsu"
-alias cdp="cd $HOME/ghq/github.com/moisutsu-playground"
 alias cdd="cd $HOME/dotfiles"
 alias ..="cd .."
 alias ...="cd ../.."
@@ -92,8 +75,3 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias .......="cd ../../../../../.."
-
-# Open Applications
-alias acrobat="open -a /Applications/Adobe\ Acrobat\ Reader\ DC.app"
-alias chrome="open -a '/Applications/Google Chrome.app'"
-alias safari="open -n '/Applications/Safari.app'"

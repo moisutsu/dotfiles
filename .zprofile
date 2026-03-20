@@ -62,33 +62,31 @@ fi
 bindkey -e
 
 # Homebrew
-if [ -e $HOME/.linuxbrew/bin/brew ]; then
-    eval $($HOME/.linuxbrew/bin/brew shellenv)
+if [ -e "$HOME/.linuxbrew/bin/brew" ]; then
+    eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
 elif [ -e /home/linuxbrew/.linuxbrew/bin/brew ]; then
-    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 elif [ -e /opt/homebrew/bin/brew ]; then
-    eval $(/opt/homebrew/bin/brew shellenv)
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
-
-# gh completion
-type gh > /dev/null 2>&1 && eval "$(gh completion --shell zsh)"
 
 # direnv
 type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
-
-# asdf
-if [ -f "$HOME/.asdf/asdf.sh" ]; then . "$HOME/.asdf/asdf.sh"; fi
 
 #
 # Paths
 #
 
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/go/bin
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 if [ "$(uname)" = 'Darwin' ]; then
-  PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+  if [ -d /opt/homebrew/opt/coreutils/libexec/gnubin ]; then
+    PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+  elif [ -d /usr/local/opt/coreutils/libexec/gnubin ]; then
+    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+  fi
 fi

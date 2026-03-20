@@ -1,7 +1,7 @@
 # dotfiles
 
 ```bash
-$ source <(curl -fsSL raw.github.com/moisutsu/dotfiles/master/init.sh)
+$ source <(curl -fsSL https://raw.githubusercontent.com/moisutsu/dotfiles/main/init.sh)
 ```
 
 ## 必要なコマンド
