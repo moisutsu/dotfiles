@@ -7,7 +7,8 @@
 	quotepath = false
 	autocrlf = false
 [merge]
-	tool = vim \"$MERGED\"
+	tool = vimdiff
+	conflictstyle = zdiff3
 [ghq]
 	root = ~/ghq
 [commit]
@@ -24,12 +25,17 @@
 [pull]
 	rebase = false
 	ff = only
+[rebase]
+	autosquash = true
 [color]
 	ui = true
 	diff = auto
 	status = auto
 	branch = auto
+[rerere]
+	enabled = true
 [status]
 	showUntrackedFiles = all
 [push]
 	default = current
+	autoSetupRemote = true

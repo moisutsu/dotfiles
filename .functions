@@ -1,26 +1,30 @@
 #!/bin/zsh
 
-# Search the repository managed by ghq with fzf and `cd`
-function ghq_repo_search_with_fzf () {
-    local selected_dir
-    selected_dir=$(ghq list -p | fzf --reverse --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    fi
-    zle clear-screen
-}
-zle -N ghq_repo_search_with_fzf
-bindkey '^]' ghq_repo_search_with_fzf
+if command -v ghq > /dev/null 2>&1 && command -v fzf > /dev/null 2>&1; then
+    # Search the repository managed by ghq with fzf and `cd`
+    function ghq_repo_search_with_fzf () {
+        local selected_dir
+        selected_dir=$(ghq list -p | fzf --reverse --query "$LBUFFER")
+        if [ -n "$selected_dir" ]; then
+            BUFFER="cd ${selected_dir}"
+            zle accept-line
+        fi
+        zle clear-screen
+    }
+    zle -N ghq_repo_search_with_fzf
+    bindkey '^]' ghq_repo_search_with_fzf
+fi
 
-# Search command history with fzf
-function history_search_with_fzf () {
-    BUFFER=$(history -n 1 | tail -r | awk '!a[$0]++' | fzf --reverse)
-    CURSOR=$#BUFFER
-    zle reset-prompt
-}
-zle -N history_search_with_fzf
-bindkey '^R' history_search_with_fzf
+if command -v fzf > /dev/null 2>&1; then
+    # Search command history with fzf
+    function history_search_with_fzf () {
+        BUFFER=$(fc -rl 1 | awk '{$1=""; sub(/^ /, ""); if (!seen[$0]++) print }' | fzf --reverse)
+        CURSOR=$#BUFFER
+        zle reset-prompt
+    }
+    zle -N history_search_with_fzf
+    bindkey '^R' history_search_with_fzf
+fi
 
 # Downloadsディレクトリの最新のファイルをカレントディレクトリに移動
 function mvdl () {

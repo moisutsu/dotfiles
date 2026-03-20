@@ -1,17 +1,13 @@
+[[ ! -o interactive ]] && return
+
 # load .aliases
-[ -f $HOME/.aliases ] && source $HOME/.aliases
+[ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
 
 # load .functions
-[ -f $HOME/.functions ] && source $HOME/.functions
+[ -f "$HOME/.functions" ] && source "$HOME/.functions"
 
 # load .zshrc.local
-[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
-
-# switch the path of .gitconfig depending on the OS
-case "$(uname -s)" in
-    Linux*)  export GIT_CONFIG_GLOBAL="$HOME/.gitconfig.linux" ;;
-    Darwin*) export GIT_CONFIG_GLOBAL="$HOME/.gitconfig.macos" ;;
-esac
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
 
 
 # history
@@ -31,7 +27,9 @@ setopt hist_expand
 setopt inc_append_history
 
 # append completions to fpath
-fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+if [[ -d "${ASDF_DATA_DIR:-$HOME/.asdf}/completions" ]]; then
+    fpath=("${ASDF_DATA_DIR:-$HOME/.asdf}/completions" $fpath)
+fi
 
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
@@ -53,6 +51,9 @@ zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _
 # highlight
 zle_highlight=('paste:none')
 
+# emacs keybind on zsh
+bindkey -e
+
 # nobeep
 setopt no_beep
 setopt nolistbeep
@@ -60,19 +61,27 @@ setopt nolistbeep
 # dir stack
 setopt AUTO_PUSHD
 
+# direnv
+type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
+
 # fpath
-fpath+=~/.zfunc
+fpath+=("$HOME/.zfunc")
 
 ### Added by Zinit's installer
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
+if [[ ! -f "$ZINIT_HOME/zinit.zsh" && -f "$HOME/.zinit/bin/zinit.zsh" ]]; then
+    ZINIT_HOME="$HOME/.zinit/bin"
+fi
+
+if [[ ! -f "$ZINIT_HOME/zinit.zsh" ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin" && \
+    command mkdir -p "$(dirname "$ZINIT_HOME")" && command chmod g-rwX "$(dirname "$ZINIT_HOME")"
+    command git clone https://github.com/zdharma-continuum/zinit "$ZINIT_HOME" && \
         print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
         print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 
-source "$HOME/.zinit/bin/zinit.zsh"
+source "$ZINIT_HOME/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
@@ -95,7 +104,6 @@ zinit wait lucid for \
 # load pure
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
-
 ### End of Zinit's installer chunk
 
 # Auto start tmux
