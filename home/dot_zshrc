@@ -52,12 +52,29 @@ setopt magic_equal_subst
 setopt complete_in_word
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' menu no
+type eza > /dev/null 2>&1 && zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 
 # highlight
 zle_highlight=('paste:none')
 
 # emacs keybind on zsh
 bindkey -e
+if (( $+widgets[ghq_repo_search_with_fzf] )); then
+    bindkey '^]' ghq_repo_search_with_fzf
+fi
+if (( $+widgets[history_search_with_fzf] )); then
+    bindkey '^R' history_search_with_fzf
+fi
+if (( $+widgets[history-substring-search-up] )); then
+    bindkey '^P' history-substring-search-up
+    bindkey '^N' history-substring-search-down
+    bindkey "$terminfo[kcuu1]" history-substring-search-up
+    bindkey "$terminfo[kcud1]" history-substring-search-down
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
+fi
 
 # nobeep
 setopt no_beep

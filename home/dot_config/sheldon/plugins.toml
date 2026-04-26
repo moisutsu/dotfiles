@@ -6,6 +6,10 @@ github = "zsh-users/zsh-completions"
 [plugins.compinit]
 inline = "autoload -Uz compinit && compinit"
 
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
+use = ["fzf-tab.plugin.zsh"]
+
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 use = ["zsh-autosuggestions.zsh"]
@@ -17,3 +21,7 @@ use = ["async.zsh", "pure.zsh"]
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
 use = ["zsh-syntax-highlighting.zsh"]
+
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+use = ["zsh-history-substring-search.zsh"]
