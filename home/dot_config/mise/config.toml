@@ -1,0 +1,9 @@
+[settings]
+python.github_attestations = false
+
+[tools]
+python = "3.11.4"
+node = "18.16.0"
+gcloud = "451.0.1"
+uv = "0.4.18"
+terraform = "1.9.8"

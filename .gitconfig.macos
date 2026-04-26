@@ -1,8 +1,0 @@
-[include]
-	path = ~/.gitconfig
-
-[core]
-	editor = code --wait
-
-[credential]
-	helper = osxkeychain

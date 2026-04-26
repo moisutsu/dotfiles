@@ -21,18 +21,16 @@ typeset -gU cdpath fpath mailpath path
 
 path=(
   "$HOME/.cargo/bin"
-  "${ASDF_DATA_DIR:-$HOME/.asdf}/bin"
-  "${ASDF_DATA_DIR:-$HOME/.asdf}/shims"
+  "$HOME/.local/bin"
+  "$HOME/.local/share/mise/shims"
   /usr/local/bin
   /usr/local/sbin
   $path
-  "$HOME/.local/bin"
   "$HOME/go/bin"
 )
 
 case "$(uname -s)" in
   Linux*)
-    export GIT_CONFIG_GLOBAL="$HOME/.gitconfig.linux"
     if [[ -d "$HOME/.linuxbrew/bin" ]]; then
       path=("$HOME/.linuxbrew/bin" "$HOME/.linuxbrew/sbin" $path)
     elif [[ -d /home/linuxbrew/.linuxbrew/bin ]]; then
@@ -40,7 +38,6 @@ case "$(uname -s)" in
     fi
     ;;
   Darwin*)
-    export GIT_CONFIG_GLOBAL="$HOME/.gitconfig.macos"
     if [[ -d /opt/homebrew/bin ]]; then
       path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
     fi

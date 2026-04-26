@@ -6,13 +6,16 @@
 	ignorecase = false
 	quotepath = false
 	autocrlf = false
+{{- if eq .chezmoi.os "darwin" }}
+	editor = code --wait
+{{- else }}
+	editor = vim
+{{- end }}
 [merge]
 	tool = vimdiff
 	conflictstyle = zdiff3
 [ghq]
 	root = ~/ghq
-[commit]
-	template = ~/.commit_template
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -39,3 +42,9 @@
 [push]
 	default = current
 	autoSetupRemote = true
+[credential]
+{{- if eq .chezmoi.os "darwin" }}
+	helper = osxkeychain
+{{- else if eq .chezmoi.os "linux" }}
+	helper = cache --timeout=604800
+{{- end }}
