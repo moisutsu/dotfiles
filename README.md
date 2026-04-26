@@ -4,8 +4,6 @@
 
 ## 初回セットアップ
 
-最低限、`zsh`、`curl`、`git` が必要です。
-
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/moisutsu/dotfiles/main/bootstrap.sh)"
 ```
