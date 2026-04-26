@@ -33,7 +33,7 @@ fi
 if command -v fzf > /dev/null 2>&1; then
     # Search command history with fzf
     function history_search_with_fzf () {
-        BUFFER=$(fc -rl 1 | awk '{$1=""; sub(/^ /, ""); if (!seen[$0]++) print }' | fzf --reverse)
+        BUFFER=$(history -n 1 | tail -r | awk '!a[$0]++' | fzf --reverse)
         CURSOR=$#BUFFER
         zle reset-prompt
     }
@@ -42,11 +42,10 @@ fi
 
 # Downloadsディレクトリの最新のファイルをカレントディレクトリに移動
 function mvdl () {
-    local file="$HOME"/Downloads/*(.NOm[1])
-    [[ -z "$file" ]] && return 1
+    local file=`\ls -t $HOME/Downloads | head -1`
     if [ $# -eq 1 ]; then
-        mv "$file" "$(pwd)/$1"
+        mv $HOME/Downloads/$file `pwd`/$1
     else
-        mv "$file" "$(pwd)"
+        mv $HOME/Downloads/$file `pwd`
     fi
 }
