@@ -1,5 +1,7 @@
 # dotfiles
 
+`chezmoi`を使ったmacOSとLinux用のdotfiles
+
 ## 初回セットアップ
 
 最低限、`zsh`、`curl`、`git` が必要です。
@@ -24,7 +26,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/moisutsu/dotfiles/main/i
 
 ```bash
 cd ~/dotfiles
-git pull --ff-only
 bash ~/dotfiles/init.sh
 ```
 
