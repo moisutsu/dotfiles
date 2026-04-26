@@ -14,25 +14,11 @@ fi
 if command -v brew > /dev/null 2>&1; then
     brew bundle install --file "$DOT_DIRECTORY/Brewfile" --no-upgrade
 else
-    echo "brew is not installed. Please install brew." >&2
+    echo "brew is not installed. Please install brew, or install chezmoi, sheldon, and mise manually." >&2
 fi
 
-if command -v chezmoi > /dev/null 2>&1; then
-    chezmoi apply --source "$DOT_DIRECTORY"
-else
-    echo "chezmoi is not installed. Please install chezmoi." >&2
-fi
-
-if command -v sheldon > /dev/null 2>&1; then
-    sheldon lock
-else
-    echo "sheldon is not installed. Please install sheldon." >&2
-fi
-
-if command -v mise > /dev/null 2>&1; then
-    mise install
-else
-    echo "mise is not installed. Please install mise." >&2
-fi
+command -v chezmoi > /dev/null 2>&1 && chezmoi apply --source "$DOT_DIRECTORY"
+command -v sheldon > /dev/null 2>&1 && sheldon lock
+command -v mise > /dev/null 2>&1 && mise install
 
 exec zsh -l

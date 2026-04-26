@@ -14,11 +14,10 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/moisutsu/dotfiles/main/i
 
 - `~/dotfiles` がなければcloneし、あれば `git pull --ff-only` で更新する
 - Homebrewがある環境では、`Brewfile` の最低限のCLIを入れる
-- Homebrewがなければインストール案内を表示する
+- Homebrewがなければ、Homebrewまたは `chezmoi` / `sheldon` / `mise` のインストール案内を表示する
 - `chezmoi` があれば `chezmoi apply --source "$HOME/dotfiles"` で設定を反映する
-- `chezmoi` がなければインストール案内を表示する
-- `sheldon` があればZsh pluginをlock/installし、なければインストール案内を表示する
-- `mise` があれば管理対象ツールをinstallし、なければインストール案内を表示する
+- `sheldon` があればZsh pluginをlock/installする
+- `mise` があれば管理対象ツールをinstallする
 - 最後に `zsh -l` を起動する
 
 ## 既存マシンの更新
