@@ -1,7 +1,5 @@
 # dotfiles
 
-個人用のdotfilesです。macOSと、Linux使うことを想定しています。
-
 ## 初回セットアップ
 
 最低限、`zsh`、`curl`、`git` が必要です。
