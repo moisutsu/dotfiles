@@ -21,7 +21,6 @@ type eza > /dev/null 2>&1 && alias ls="eza"
 # utils
 type eza > /dev/null 2>&1 && alias tree="eza -T"
 type nvidia-smi > /dev/null 2>&1 && alias ns="nvidia-smi"
-alias reload="exec $SHELL -l"
 alias c="code"
 alias rtmp="rm -rf $HOME/tmp && mkdir $HOME/tmp"
 

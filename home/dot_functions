@@ -1,5 +1,21 @@
 #!/bin/zsh
 
+function reload () {
+    local shell_path="${SHELL:-/bin/zsh}"
+    local user_name="${USER:-$(id -un)}"
+    local logname="${LOGNAME:-$user_name}"
+    local term_name="${TERM:-xterm-256color}"
+
+    exec /usr/bin/env -i \
+        HOME="$HOME" \
+        USER="$user_name" \
+        LOGNAME="$logname" \
+        SHELL="$shell_path" \
+        TERM="$term_name" \
+        PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin" \
+        "$shell_path" -l
+}
+
 if command -v ghq > /dev/null 2>&1 && command -v fzf > /dev/null 2>&1; then
     # Search the repository managed by ghq with fzf and `cd`
     function ghq_repo_search_with_fzf () {
