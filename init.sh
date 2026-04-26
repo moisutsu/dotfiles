@@ -11,28 +11,28 @@ else
     git clone "$REPOSITORY" "$DOT_DIRECTORY"
 fi
 
-if ! command -v chezmoi > /dev/null 2>&1; then
-    if command -v brew > /dev/null 2>&1; then
-        brew install chezmoi
-    else
-        mkdir -p "$HOME/.local/bin"
-        sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
-        PATH="$HOME/.local/bin:$PATH"
-    fi
+if command -v brew > /dev/null 2>&1; then
+    brew bundle install --file "$DOT_DIRECTORY/Brewfile" --no-upgrade
+else
+    echo "brew is not installed. Please install brew." >&2
 fi
 
-chezmoi apply --source "$DOT_DIRECTORY"
-
-if command -v brew > /dev/null 2>&1 && [ -f "$DOT_DIRECTORY/Brewfile" ]; then
-    brew bundle install --file "$DOT_DIRECTORY/Brewfile" --no-upgrade
+if command -v chezmoi > /dev/null 2>&1; then
+    chezmoi apply --source "$DOT_DIRECTORY"
+else
+    echo "chezmoi is not installed. Please install chezmoi." >&2
 fi
 
 if command -v sheldon > /dev/null 2>&1; then
     sheldon lock
+else
+    echo "sheldon is not installed. Please install sheldon." >&2
 fi
 
 if command -v mise > /dev/null 2>&1; then
     mise install
+else
+    echo "mise is not installed. Please install mise." >&2
 fi
 
 exec zsh -l
