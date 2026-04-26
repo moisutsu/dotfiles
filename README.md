@@ -31,8 +31,8 @@ bash ~/dotfiles/init.sh
 設定ファイルだけを反映したい場合はchezmoiを直接使います。
 
 ```bash
-chezmoi diff --source "$HOME/dotfiles"
-chezmoi apply --source "$HOME/dotfiles"
+chezmoi diff
+chezmoi apply
 ```
 
 ## 構成
@@ -92,14 +92,23 @@ sheldon source
 - `home/dot_gitconfig.tmpl` -> `~/.gitconfig`
 - `home/dot_config/mise/config.toml` -> `~/.config/mise/config.toml`
 
+`home/dot_config/chezmoi/chezmoi.toml` で `sourceDir = "~/dotfiles"` を設定しているため、初回適用後は通常 `--source` を付けずにchezmoiを使えます。
+
 変更前に差分を見るには:
 
 ```bash
-chezmoi diff --source "$HOME/dotfiles"
+chezmoi diff
 ```
 
 反映するには:
 
 ```bash
-chezmoi apply --source "$HOME/dotfiles"
+chezmoi apply
+```
+
+管理対象ファイルを編集するには:
+
+```bash
+chezmoi edit ~/.zshrc
+chezmoi apply
 ```
