@@ -7,10 +7,10 @@
 最低限、`zsh`、`curl`、`git` が必要です。
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/moisutsu/dotfiles/main/init.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/moisutsu/dotfiles/main/bootstrap.sh)"
 ```
 
-`init.sh` は次の処理を行います。
+`bootstrap.sh` は次の処理を行います。
 
 - `~/dotfiles` がなければcloneし、あれば `git pull --ff-only` で更新する
 - Homebrewがある環境では、`Brewfile` の最低限のCLIを入れる
@@ -26,7 +26,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/moisutsu/dotfiles/main/i
 
 ```bash
 cd ~/dotfiles
-bash ~/dotfiles/init.sh
+bash ~/dotfiles/bootstrap.sh
 ```
 
 設定ファイルだけを反映したい場合はchezmoiを直接使います。
@@ -38,7 +38,7 @@ chezmoi apply
 
 ## 構成
 
-- `init.sh`: 新規セットアップと既存マシン更新用のbootstrap script
+- `bootstrap.sh`: 新規セットアップと既存マシン更新用のbootstrap script
 - `Brewfile`: Homebrewが使える環境で入れる、dotfilesが直接使う最低限のCLI一覧
 - `.chezmoiroot`: chezmoiのsource rootを `home/` にする設定
 - `home/`: ホームディレクトリへ展開されるchezmoi管理ファイル
