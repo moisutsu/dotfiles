@@ -113,3 +113,10 @@ chezmoi apply
 chezmoi edit ~/.zshrc
 chezmoi apply
 ```
+
+ホームディレクトリ側の管理対象ファイルに加わった変更をdotfilesへ取り込むには:
+
+```bash
+chezmoi diff ~/.zshrc
+chezmoi re-add ~/.zshrc
+```
