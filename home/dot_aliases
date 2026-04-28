@@ -17,6 +17,7 @@ type rg > /dev/null 2>&1 && alias -g grep="rg"
 type cw > /dev/null 2>&1 && alias -g wc="cw"
 type fd > /dev/null 2>&1 && alias find="fd"
 type eza > /dev/null 2>&1 && alias ls="eza"
+type bat > /dev/null 2>&1 && alias cat="bat -pp"
 
 # utils
 type eza > /dev/null 2>&1 && alias tree="eza -T"
