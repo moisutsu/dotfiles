@@ -91,3 +91,6 @@ nohup.out
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+### For ClaudeCode ###
+**/.claude/settings.local.json
