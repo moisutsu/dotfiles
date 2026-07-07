@@ -41,6 +41,7 @@ chezmoi apply
 - `.chezmoiroot`: chezmoiのsource rootを `home/` にする設定
 - `home/`: ホームディレクトリへ展開されるchezmoi管理ファイル
 - `home/dot_config/mise/config.toml`: miseで管理する言語・CLIバージョン
+- `home/dot_config/herdr/config.toml`: Herdrのターミナルマルチプレクサ設定
 - `home/dot_config/sheldon/plugins.toml`: Zsh plugin管理
 
 ## マシン固有設定

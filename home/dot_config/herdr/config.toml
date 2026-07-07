@@ -1,0 +1,25 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+j"
+split_vertical = "prefix+|"
+close_tab = "prefix+ampersand"
+copy_mode = "prefix+["
+detach = "prefix+d"
+cycle_pane_next = "ctrl+o"
+goto = "prefix+w"
+workspace_picker = "prefix+g"
+
+[ui]
+pane_gaps = false
+confirm_close = false
+prompt_new_tab_name = false
+
+[ui.sound]
+enabled = false
+
+[advanced]
+scrollback_limit_bytes = 104857600
+
+[theme]
+name = "terminal"

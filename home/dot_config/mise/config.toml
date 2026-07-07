@@ -5,3 +5,4 @@ python.github_attestations = false
 python = "3.14"
 node = "24"
 uv = "latest"
+"github:ogulcancelik/herdr" = "latest"

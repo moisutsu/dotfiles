@@ -86,7 +86,7 @@ setopt AUTO_PUSHD
 # direnv
 type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
-# Auto start tmux
-if [[ -z $TMUX && $- == *l* && -n $SSH_TTY &&  ! $TERM_PROGRAM == vscode ]]; then
-    type tmux > /dev/null 2>&1 && tmux attach || tmux
+# Auto start herdr
+if [[ -z $HERDR && -z $HERDR_SOCKET_PATH && $- == *l* && -n $SSH_TTY && ! $TERM_PROGRAM == vscode ]]; then
+    type herdr > /dev/null 2>&1 && herdr
 fi
