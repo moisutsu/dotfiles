@@ -266,22 +266,26 @@ rows=$(
     --arg self "$self_pane" \
     --arg active "$active_pane" '
     ($panes.result.panes // []) | map(select(.pane_id != $self)) as $pl
-    | ($tabs.result.tabs // [])[]
-    | . as $t
+    | ($tabs.result.tabs // []) | to_entries[]
+    | .key as $i
+    | .value as $t
     | ($pl | map(select(.tab_id == $t.tab_id))) as $tp
     | (
         ($tp | map(select(.pane_id == $active)))
         + ($tp | map(select(.pane_id != $active and .focused)))
         + ($tp | map(select(.pane_id != $active and (.focused | not))))
       ) as $tp
-    | (($t.number // 0) | tostring) as $n
+    # .number は内部連番で閉じた tab の分が飛ぶ。herdr の UI や prefix+1..9 は
+    # 表示順の位置なので、そちらに合わせる。
+    | (($i + 1) | tostring) as $n
     # herdr が自動採番したラベル（数字だけ）は番号と重複するので出さない
-    | (($t.label // "") | if test("^[0-9]*$") then "" else ": " + . end) as $label
+    # ($label は jq 1.6 では予約語なので使えない)
+    | (($t.label // "") | if test("^[0-9]*$") then "" else ": " + . end) as $tab_label
     | (if ($tp | length) > 1 then "  [\($tp | length) panes]" else "" end) as $panes_hint
     | (if ($t.agent_status // "unknown") == "unknown" then "" else "  <\($t.agent_status)>" end) as $agent
     | [
         $t.tab_id,
-        $n + $label + $panes_hint + $agent,
+        $n + $tab_label + $panes_hint + $agent,
         ($tp | map(.pane_id) | join(","))
       ]
     | @tsv
