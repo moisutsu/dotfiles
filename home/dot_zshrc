@@ -9,6 +9,9 @@
 # load .zshrc.local
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
 
+# load .zshrc.internal
+[ -f "$HOME/.zshrc.internal" ] && source "$HOME/.zshrc.internal"
+
 
 # history
 export HISTSIZE=1000
